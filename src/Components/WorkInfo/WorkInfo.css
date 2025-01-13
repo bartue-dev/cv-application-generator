@@ -1,0 +1,84 @@
+.work-experience-info {
+  background-color: #ffff;
+  color: black;
+  font-size: 1.3rem;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.work-experience-info .heading-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.work-experience-info .heading-container .down-arrow{
+  cursor: pointer;
+}
+
+.work-experience-info .heading-container h1 {
+  font-size: 1.7rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+.work-experience-info .input-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.work-experience-info .input-container label{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.work-experience-info .input-container textarea{
+  grid-column: 1 / -1;
+  border: 1px solid black;
+  height: 150px;
+  border-radius: 3px;
+  resize: none;
+  font-size: 1rem;
+  padding: 8px;
+}
+
+.work-experience-info .input-container label input{
+  border-radius: 3px;
+  border: 1px solid black;
+  font-size: 1rem;
+  padding: 8px;
+}
+.work-experience-info .input-container .button-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.work-experience-info .input-container .button-container .button-item .submit-button {
+  margin-left: 10px;
+  background-color: #22d3ee;
+  color: #ffff;
+  border: 1px solid #22d3ee;
+}
+
+.work-experience-info .input-container .button-container .button-item .cancel-button {
+  color: #ffff;
+  background-color: #f43f5e;
+  border: 1px solid #f43f5e;
+}
+
+.work-experience-info .input-container .button-container .delete-button {
+  color: #ffff;
+  background-color: #e11d48;
+  border: 1px solid #e11d48;
+}
+
+.work-experience-info .input-container .button-container button {
+  outline: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
