@@ -1,11 +1,17 @@
 .education-info {
-  background-color: #ffff;
-  color: black;
+  background-color: white;
+  color: #27272a;
   font-size: 1.3rem;
   padding: 30px;
   border-radius: 10px;
+  border: 1px solid #ffff;
   width: 90%;
 
+}
+
+
+.education-info button {
+  cursor: pointer;
 }
 
 .education-info .heading-container {
@@ -13,7 +19,8 @@
   justify-content: space-between;
 }
 
-.education-info .heading-container .down-arrow{
+.education-info .heading-container .down-arrow,
+.education-info .add-education-container .add-icon{
   cursor: pointer;
 }
 
@@ -22,11 +29,27 @@
   font-weight: normal;
   margin-bottom: 20px;
 }
+
 .education-info .input-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+
+  background-color: #f3f4f6;
+  color: #27272a;
+  padding: 30px;
+  border-radius: 30px;
+  margin-bottom: 20px;
 }
+
+.education-info .input-container h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+} 
+
 
 .education-info .input-container label{
   display: flex;
@@ -36,7 +59,8 @@
 
 .education-info .input-container textarea{
   grid-column: 1 / -1;
-  border: 1px solid black;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
   height: 150px;
   border-radius: 3px;
   resize: none;
@@ -46,34 +70,29 @@
 
 .education-info .input-container label input{
   border-radius: 3px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
 }
 .education-info .input-container .button-container {
   grid-column: 1 / -1;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
-.education-info .input-container .button-container .button-item .submit-button {
+.education-info .input-container .button-container .submit-button {
   margin-left: 10px;
   background-color: #22d3ee;
   color: #ffff;
   border: 1px solid #22d3ee;
 }
 
-.education-info .input-container .button-container .button-item .cancel-button {
+.education-info .input-container .button-container .cancel-button {
   color: #ffff;
   background-color: #f43f5e;
   border: 1px solid #f43f5e;
-}
-
-.education-info .input-container .button-container .delete-button {
-  color: #ffff;
-  background-color: #e11d48;
-  border: 1px solid #e11d48;
 }
 
 .education-info .input-container .button-container button {
@@ -82,4 +101,160 @@
   font-size: 1rem;
   border-radius: 12px;
 }
+
+.education-info .add-education-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-radius: 30px;
+}
+
+.education-info .add-education-container h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+.education-info .add-education-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+
+  background-color: #22d3ee;
+  border: transparent;
+  outline: none;
+  border-radius: 5px;
+}
+
+.education-info .education-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px;
+  background-color: #f3f4f6;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.education-info .education-list .title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.education-info .education-list h2 {
+  font-size: 1rem;
+}
+
+.education-info .education-list h3 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.education-info .education-list .edit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px;
+  border: transparent;
+  border-radius: 6px;
+  background-color: #86efac;
+
+}
+
+.education-info .edit-input-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+
+  background-color: #f3f4f6;
+  color: #27272a;
+  padding: 30px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.education-info .edit-input-container h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+} 
+
+
+.education-info .edit-input-container label{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.education-info .edit-input-container textarea{
+  grid-column: 1 / -1;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
+  height: 150px;
+  border-radius: 3px;
+  resize: none;
+  font-size: 1rem;
+  padding: 8px;
+}
+
+.education-info .edit-input-container label input{
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
+  font-size: 1rem;
+  padding: 8px;
+}
+.education-info .edit-input-container .button-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.education-info .edit-input-container .button-container .button-item {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.education-info .edit-input-container .button-container .save-button {
+  margin-left: 10px;
+  background-color: #22d3ee;
+  color: #ffff;
+  border: 1px solid #22d3ee;
+}
+
+.education-info .edit-input-container .button-container .cancel-button {
+  color: #ffff;
+  background-color: #f43f5e;
+  border: 1px solid #f43f5e;
+}
+
+.education-info .edit-input-container .button-container .delete-button {
+  color: #ffff;
+  background-color: #dc2626;
+  border: 1px solid #dc2626;
+}
+
+.education-info .edit-input-container .button-container button {
+  outline: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+
 
