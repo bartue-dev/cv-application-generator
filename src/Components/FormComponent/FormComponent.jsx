@@ -1,6 +1,6 @@
 import "./FormComponent.css"
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
-import EducationInfo from "../EducationalInfo/EducationInfo";
+import EducationInfo from "../EducationInfo/EducationInfo";
 import WorkInfo from "../WorkInfo/WorkInfo"
 import AddMoreInfo from "../AddMoreInfo/AddMoreInfo"
 import { useState } from "react";
