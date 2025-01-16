@@ -7,33 +7,38 @@ function PersonalInfo({ isActive, onShow }) {
   return (
     <div className="personal-info">
       <div className="heading-container">
-      <h1>Personal Information</h1>
-      <Icon path={mdiChevronDown} size={1} className="down-arrow" onClick={onShow} style={{display: isActive ? "none" : "block" }} />
+        <h1>Personal Information</h1>
+        <Icon path={mdiChevronDown} size={1} className="down-arrow" onClick={onShow} style={
+          {display: isActive ? "none" : "block" }
+        }/>
       </div>
 
       {
-      isActive ? ( <form className="input-container">
-      <label>
-        Name
-        <input type="text" name="name" id="name-id"/>
-      </label>
+      isActive && ( 
+      <form className="input-container">
+        <h2>Add Personal Info</h2>
+        
+        <label>
+          Name
+          <input type="text" name="name" id="name-id"/>
+        </label>
 
-      <label>
-        Email
-        <input type="email" name="email" id="email-id"/>
-       </label>
+        <label>
+          Email
+          <input type="email" name="email" id="email-id"/>
+        </label>
 
-      <label>
-        Phone #
-        <input type="tel" name="phone" id="phone-id"/>
-      </label>
+        <label>
+          Phone #
+          <input type="tel" name="phone" id="phone-id"/>
+        </label>
 
-      <label>
-        Portfolio
-        <input type="tel" name="portfolio" id="portfolio-id"/>
-      </label>
+        <label>
+          Portfolio
+          <input type="tel" name="portfolio" id="portfolio-id"/>
+        </label>
 
-    </form> ) : ( "" )  
+      </form> ) 
       }
      
     </div>
