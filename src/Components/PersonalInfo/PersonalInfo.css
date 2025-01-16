@@ -1,9 +1,10 @@
 .personal-info {
-  background-color: #ffff;
-  color: black;
+  background-color: white;
+  color: #27272a;
   font-size: 1.3rem;
   padding: 30px;
   border-radius: 10px;
+  border: 1px solid #ffff;
   width: 90%;
 
 }
@@ -26,7 +27,21 @@
   display: grid;
   grid-template-columns: repeat(2,1fr);;
   gap: 10px;
+
+  
+  background-color: #f3f4f6;
+  color: #27272a;
+  padding: 30px;
+  border-radius: 30px;
 }
+
+.personal-info .input-container h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+} 
 
 .personal-info .input-container label{
   display: flex;
@@ -36,7 +51,8 @@
 
 .personal-info .input-container label input{
   border-radius: 3px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
 }
