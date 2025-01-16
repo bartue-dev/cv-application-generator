@@ -1,9 +1,10 @@
 .add-more-info {
-  background-color: #ffff;
-  color: black;
+  background-color: white;
+  color: #27272a;
   font-size: 1.3rem;
   padding: 30px;
   border-radius: 10px;
+  border: 1px solid #ffff;
   width: 90%;
 }
 
@@ -43,10 +44,11 @@
 }
 
 .add-more-info form .input-container input {
-  border-radius: 3px;
-  border: 1px solid black;
+  border-radius: 6px;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
   font-size: 1rem;
-  padding: 8px;
+  padding: 10px;
   width: 100%;
 
 }
