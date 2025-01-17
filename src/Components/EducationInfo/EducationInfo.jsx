@@ -11,15 +11,13 @@ function EducationInfo({ isActive, onShow }) {
 
   console.log("Education Data: ", educationData)
 
-  function handleEducationDataChange(index, name, value) {
-
-
-    setEducationData(prev => (
-      prev.map((item, i) => {
-        return i === index ? {...item, [name]: value} : item;
-      })
-    ))
-  }
+  // function handleEducationDataChange(index, name, value) {
+  //   const changeData = educationData.map((item, i) => {
+  //     return i === index ? {...item, [name]: value} : item;
+  //   })
+    
+  //   setEducationData(changeData)
+  // }
 
   return (
 
@@ -44,12 +42,11 @@ function EducationInfo({ isActive, onShow }) {
                 {isEditForm === info.id ?
 
                  <EditEducationForm
-                 {...info}
+                  {...info}
                   setIsEditForm={setIsEditForm}
                   setEducationData={setEducationData}
-                  educationData={educationData}
                   index={index}
-                  onUpdate={handleEducationDataChange}
+                  //onUpdate={handleEducationDataChange}
                  /> :
                   
                   <>
