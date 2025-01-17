@@ -8,9 +8,10 @@ function WorkInfo({ isActive, onShow }) {
   const [showForm, setShowForm] = useState(false);
   const [workInfoData, setWorkInfoData] = useState([]);
   const [isEditForm, setIsEditForm] = useState(0);
-
+  
   // console.log(isEditForm);
-  // console.log("Work info Data", workInfoData)
+  //console.log("Work info Data", workInfoData)
+  
 
   return (
     <div className="work-experience-info">
@@ -22,7 +23,7 @@ function WorkInfo({ isActive, onShow }) {
       {isActive && (
         <>
 
-          {workInfoData.map((info) => (
+          {workInfoData.map((info, index) => (
 
               <div
               className="work-info-list"
@@ -30,7 +31,12 @@ function WorkInfo({ isActive, onShow }) {
               >
 
               {isEditForm === info.id ?
-               <EditWOrkInfoForm setIsEditForm={setIsEditForm}/> :
+               <EditWOrkInfoForm 
+                {...info}
+                setIsEditForm={setIsEditForm}
+                setWorkInfoData={setWorkInfoData}
+                index={index}
+               /> :
 
               <>
                   <div className="title-container">
@@ -40,7 +46,9 @@ function WorkInfo({ isActive, onShow }) {
 
                   <button
                     className="edit-button"
-                    onClick={() => setIsEditForm(info.id)}
+                    onClick={() => 
+                      setIsEditForm(info.id)
+                    }
                   >
                     <Icon path={mdiPencil} size={1} />
                   </button> 
