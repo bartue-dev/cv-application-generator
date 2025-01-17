@@ -9,7 +9,7 @@ export function WorkInfoForm({ onCancel, workInfoData, setWorkInfoData }) {
     workDataDetails.id = workInfoData.length + 1;
 
     setWorkInfoData((prev) => [...prev, workDataDetails]);
-
+    
     e.target.reset();
 
   }
@@ -51,33 +51,80 @@ export function WorkInfoForm({ onCancel, workInfoData, setWorkInfoData }) {
   )
 }
 
-export function EditWOrkInfoForm({ setIsEditForm }) {
+export function EditWOrkInfoForm({
+  setIsEditForm,
+  company,
+  position,
+  description,
+  year,
+  location,
+  index,
+  setWorkInfoData
+}) {
+
+  function handleUpdateWorkInfoData(e) {
+    e.preventDefault();
+    
+      const updatedData = new FormData(e.target);
+      const updatedDataDetails = Object.fromEntries(updatedData);
+
+      setWorkInfoData(prev => (
+        prev.map((item, i) => {
+          return i === index ? {...item, ...updatedDataDetails} : item
+        })
+      ))
+
+      alert("Work Experience info updated")
+      setIsEditForm(false)
+  }
 
   return (
     <>
-      <form className="edit-input-container" >
+      <form className="edit-input-container" onSubmit={handleUpdateWorkInfoData}>
       <h2>Edit Work Experience</h2>
       <label>
         Company
-        <input type="text" name="company" id="company-id"/>
+        <input
+          type="text"
+          name="company"
+          id="company-id"
+          defaultValue={company}
+          />
       </label>
 
       <label>
         Position
-        <input type="text" name="position" id="position-id"/>
+        <input
+          type="text"
+          name="position"
+          id="position-id"
+          defaultValue={position}/>
         </label>
 
       <label htmlFor="description-id">Description</label>
-      <textarea name="description" id="description-id"></textarea>
+      <textarea
+      name="description"
+      id="description-id"
+      defaultValue={description}
+
+      ></textarea>
 
       <label>
         Year
-        <input type="text" name="year" id="year-id"/>
+        <input
+        type="text"
+        name="year" 
+        id="year-id"
+        defaultValue={year}/>
       </label>
 
       <label>
         Location
-        <input type="text" name="location" id="location-id"/>
+        <input 
+          type="text" 
+          name="location" 
+          id="location-id"
+          defaultValue={location} />
       </label>
 
       <div className="button-container">
@@ -91,7 +138,9 @@ export function EditWOrkInfoForm({ setIsEditForm }) {
            >
             Cancel
             </button>
-          <button className="submit-button">Submit</button>
+          <button 
+            className="submit-button"
+          >Save</button>
         </div>
 
       </div>
