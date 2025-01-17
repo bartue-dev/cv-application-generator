@@ -68,13 +68,30 @@ export function EditEducationForm({
   year, 
   latinHonors,
   index,
-  onUpdate
+  setEducationData
+  //onUpdate
    }) {
+
+  function handleUpdateEducationData(e) {
+    e.preventDefault();
+
+    const updatedData = new FormData(e.target);
+    const updatedDataDetails = Object.fromEntries(updatedData);
+
+    setEducationData(prev => (
+      prev.map((item, i) => {
+        return i === index ? {...item, ...updatedDataDetails} : item
+      })
+    ))
+
+    alert("Education Info Updated")
+    setIsEditForm(false);
+  }
  
   return (
    <>
 
-      <form className="edit-input-container">
+      <form className="edit-input-container" onSubmit={handleUpdateEducationData}>
       <h2>Edit Education</h2>
       <label>
         School
@@ -82,8 +99,8 @@ export function EditEducationForm({
         type="text" 
         name="school" 
         id="school-id" 
-        value={school}
-        onChange={(e) => onUpdate(index, "school" , e.target.value)}
+        defaultValue={school}
+        // onChange={(e) => onUpdate(index, "school" , e.target.value)}
         />
       </label>
 
@@ -93,8 +110,8 @@ export function EditEducationForm({
         type="text" 
         name="course" 
         id="course-id" 
-        value={course}
-        onChange={(e) => onUpdate(index, "course" , e.target.value)}
+        defaultValue={course}
+        // onChange={(e) => onUpdate(index, "course" , e.target.value)}
         />
         </label>
 
@@ -102,8 +119,8 @@ export function EditEducationForm({
       <textarea 
       name="description" 
       id="description-id" 
-      value={description}
-      onChange={(e) => onUpdate(index, "description" , e.target.value)}
+      defaultValue={description}
+      // onChange={(e) => onUpdate(index, "description" , e.target.value)}
       ></textarea>
 
       <label>
@@ -112,8 +129,8 @@ export function EditEducationForm({
         type="text" 
         name="year" 
         id="year-id" 
-        value={year}
-        onChange={(e) => onUpdate(index, "year" , e.target.value)}
+        defaultValue={year}
+        // onChange={(e) => onUpdate(index, "year" , e.target.value)}
         />
       </label>
 
@@ -123,8 +140,8 @@ export function EditEducationForm({
         type="text" 
         name="latin-honors" 
         id="latin-honors-id" 
-        value={latinHonors}
-        onChange={(e) => onUpdate(index, "latinHonors" , e.target.value)}
+        defaultValue={latinHonors}
+        // onChange={(e) => onUpdate(index, "latinHonors" , e.target.value)}
         />
       </label>
 
