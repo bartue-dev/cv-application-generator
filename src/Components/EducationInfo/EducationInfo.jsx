@@ -44,6 +44,7 @@ function EducationInfo({ isActive, onShow }) {
                  <EditEducationForm
                   {...info}
                   setIsEditForm={setIsEditForm}
+                  educationData={educationData}
                   setEducationData={setEducationData}
                   index={index}
                   //onUpdate={handleEducationDataChange}
