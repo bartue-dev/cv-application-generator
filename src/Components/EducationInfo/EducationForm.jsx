@@ -68,10 +68,11 @@ export function EditEducationForm({
   year, 
   latinHonors,
   index,
+  educationData,
   setEducationData
-  //onUpdate
    }) {
 
+  // Update function
   function handleUpdateEducationData(e) {
     e.preventDefault();
 
@@ -87,6 +88,17 @@ export function EditEducationForm({
     alert("Education Info Updated")
     setIsEditForm(false);
   }
+
+  // Delete function
+  function handleDeleteEducationData(e) {
+    e.preventDefault();
+
+    setEducationData(
+      educationData.filter((item, i) => {
+        return i !== index
+      })
+    )
+  }
  
   return (
    <>
@@ -100,7 +112,6 @@ export function EditEducationForm({
         name="school" 
         id="school-id" 
         defaultValue={school}
-        // onChange={(e) => onUpdate(index, "school" , e.target.value)}
         />
       </label>
 
@@ -111,7 +122,6 @@ export function EditEducationForm({
         name="course" 
         id="course-id" 
         defaultValue={course}
-        // onChange={(e) => onUpdate(index, "course" , e.target.value)}
         />
         </label>
 
@@ -120,7 +130,6 @@ export function EditEducationForm({
       name="description" 
       id="description-id" 
       defaultValue={description}
-      // onChange={(e) => onUpdate(index, "description" , e.target.value)}
       ></textarea>
 
       <label>
@@ -130,7 +139,6 @@ export function EditEducationForm({
         name="year" 
         id="year-id" 
         defaultValue={year}
-        // onChange={(e) => onUpdate(index, "year" , e.target.value)}
         />
       </label>
 
@@ -141,13 +149,17 @@ export function EditEducationForm({
         name="latin-honors" 
         id="latin-honors-id" 
         defaultValue={latinHonors}
-        // onChange={(e) => onUpdate(index, "latinHonors" , e.target.value)}
         />
       </label>
 
       <div className="button-container">
 
-        <button className="delete-button">Delete</button>
+        <button 
+          className="delete-button"
+          onClick={handleDeleteEducationData}
+        >
+        Delete
+        </button>
 
         <div className="button-item">
           <button 
