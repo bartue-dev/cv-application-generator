@@ -59,6 +59,7 @@ export function EditWOrkInfoForm({
   year,
   location,
   index,
+  workInfoData,
   setWorkInfoData
 }) {
 
@@ -76,6 +77,16 @@ export function EditWOrkInfoForm({
 
       alert("Work Experience info updated")
       setIsEditForm(false)
+  }
+
+  function handleDeleteWorkInfoData(e) {
+    e.preventDefault();
+
+    setWorkInfoData(
+      workInfoData.filter((item, i) => {
+        return i !== index
+      })
+    )
   }
 
   return (
@@ -129,7 +140,12 @@ export function EditWOrkInfoForm({
 
       <div className="button-container">
 
-        <button className="delete-button">Delete</button>
+        <button 
+          className="delete-button"
+          onClick={handleDeleteWorkInfoData}
+        >
+          Delete
+        </button>
 
         <div className="button-item">
           <button
