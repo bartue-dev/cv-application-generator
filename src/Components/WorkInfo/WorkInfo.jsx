@@ -10,7 +10,7 @@ function WorkInfo({ isActive, onShow }) {
   const [isEditForm, setIsEditForm] = useState(0);
   
   // console.log(isEditForm);
-  //console.log("Work info Data", workInfoData)
+  console.log("Work info Data", workInfoData)
   
 
   return (
@@ -34,6 +34,7 @@ function WorkInfo({ isActive, onShow }) {
                <EditWOrkInfoForm 
                 {...info}
                 setIsEditForm={setIsEditForm}
+                workInfoData={workInfoData}
                 setWorkInfoData={setWorkInfoData}
                 index={index}
                /> :
