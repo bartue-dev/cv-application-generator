@@ -18,3 +18,282 @@
 .form-component * {
   font-family: "Work Sans";
 }
+
+.form-component button {
+  cursor: pointer;
+}
+
+.form-component .custom-list {
+    background-color: white;
+    color: #27272a;
+    font-size: 1.3rem;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #ffff;
+    width: 90%;
+}
+
+.form-component .custom-list .heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.form-component .custom-list .heading-container h1 {
+  font-size: 1.7rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+  height: 40px;
+}
+
+.form-component .custom-list .heading-container .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  margin-top: -20px;
+}
+
+.form-component .custom-list .heading-container .icon-container .delete-icon {
+  cursor: pointer;
+}
+
+
+.form-component .custom-list .heading-container h1 .delete-custom-icon:hover {
+  cursor: pointer
+}
+
+.form-component .custom-list .arrow-down {
+  cursor: pointer;
+}
+
+.form-component .custom-list .add-custom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-radius: 30px;
+}
+
+.form-component .custom-list .add-custom-container h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+.form-component .custom-list .add-custom-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+
+  background-color: #22d3ee;
+  border: transparent;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-component .custom-list .input-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  background-color: #f3f4f6;
+  color: #27272a;
+  padding: 30px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+
+.form-component .custom-list .input-container h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+} 
+
+
+.form-component .custom-list .input-container label{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-component .custom-list .input-container textarea{
+  grid-column: 1 / -1;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
+  height: 150px;
+  border-radius: 3px;
+  resize: none;
+  font-size: 1rem;
+  padding: 8px;
+}
+
+.form-component .custom-list .input-container label input{
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
+  font-size: 1rem;
+  padding: 8px;
+}
+.form-component .custom-list .input-container .button-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.form-component .custom-list .input-container .button-container .submit-button {
+  margin-left: 10px;
+  background-color: #22d3ee;
+  color: #ffff;
+  border: 1px solid #22d3ee;
+}
+
+.form-component .custom-list .input-container .button-container .cancel-button {
+  color: #ffff;
+  background-color: #f43f5e;
+  border: 1px solid #f43f5e;
+}
+
+.form-component .custom-list .input-container .button-container button {
+  outline: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+/* custom list data */
+.form-component .custom-list .custom-list-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px;
+  background-color: #f3f4f6;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.form-component .custom-list .custom-list-data .title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-component .custom-list .custom-list-data h2 {
+  font-size: 1rem;
+}
+
+.form-component .custom-list .custom-list-data h3 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.form-component .custom-list .custom-list-data .edit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5px;
+  border: transparent;
+  border-radius: 6px;
+  background-color: #86efac;
+
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+
+  background-color: #f3f4f6;
+  color: #27272a;
+  padding: 30px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+} 
+
+
+.form-component .custom-list .custom-list-data .edit-input-container label{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container textarea{
+  grid-column: 1 / -1;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
+  height: 150px;
+  border-radius: 3px;
+  resize: none;
+  font-size: 1rem;
+  padding: 8px;
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container label input{
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  outline-color: lightgray;
+  font-size: 1rem;
+  padding: 8px;
+}
+.form-component .custom-list .custom-list-data .edit-input-container .button-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container .button-container .button-item {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container .button-container .save-button {
+  margin-left: 10px;
+  background-color: #22d3ee;
+  color: #ffff;
+  border: 1px solid #22d3ee;
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container .button-container .cancel-button {
+  color: #ffff;
+  background-color: #f43f5e;
+  border: 1px solid #f43f5e;
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container .button-container .delete-button {
+  color: #ffff;
+  background-color: #dc2626;
+  border: 1px solid #dc2626;
+}
+
+.form-component .custom-list .custom-list-data .edit-input-container .button-container button {
+  outline: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+}
