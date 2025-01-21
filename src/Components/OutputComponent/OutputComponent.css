@@ -1,5 +1,15 @@
 .output-component {
   width: 100%;
   height: 100vh;
-  font-family: "Work Sans";
+  font-family: Calibri;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.output-component .cv-container {
+  border: 1px solid black;
+  width: 450px;
+  height: 550px;
 }
