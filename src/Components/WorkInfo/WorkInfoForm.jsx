@@ -1,4 +1,4 @@
-export function WorkInfoForm({ onCancel, workInfoData, setWorkInfoData }) {
+export function WorkInfoForm({ setShowForm, workInfoData, setWorkInfoData, }) {
 
   function handleSubmitWorkInfo(e) {
     e.preventDefault();
@@ -11,10 +11,9 @@ export function WorkInfoForm({ onCancel, workInfoData, setWorkInfoData }) {
     setWorkInfoData((prev) => [...prev, workDataDetails]);
     
     e.target.reset();
-
+    setShowForm(false)
   }
 
-  console.log(workInfoData)
   return (
     <form className="input-container" onSubmit={handleSubmitWorkInfo}>
       <h2>Add Work Experience</h2>
@@ -43,7 +42,7 @@ export function WorkInfoForm({ onCancel, workInfoData, setWorkInfoData }) {
 
       <div className="button-container">
 
-          <button className="cancel-button" onClick={onCancel}>Cancel</button>
+          <button className="cancel-button" onClick={() => setShowForm(false)}>Cancel</button>
           <button className="submit-button">Submit</button>
 
       </div>
