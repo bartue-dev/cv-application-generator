@@ -10,7 +10,7 @@ function WorkInfo({ isActive, onShow }) {
   const [isEditForm, setIsEditForm] = useState(0);
   
   // console.log(isEditForm);
-  console.log("Work info Data", workInfoData)
+  // console.log("Work info Data", workInfoData)
   
 
   return (
@@ -67,7 +67,7 @@ function WorkInfo({ isActive, onShow }) {
           {
             showForm ? 
             <WorkInfoForm
-             onCancel={() => setShowForm(false)}
+             setShowForm={setShowForm}
              workInfoData={workInfoData}
              setWorkInfoData={setWorkInfoData}
             /> :
