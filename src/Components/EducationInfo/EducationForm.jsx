@@ -1,6 +1,6 @@
 
 export function EducationForm({ 
-  onCancel,
+  setShowForm,
   educationData,
   setEducationData,
  }) {
@@ -15,10 +15,9 @@ export function EducationForm({
 
     setEducationData((prev) => [...prev, educationInfoDetails])
 
-    e.target.reset()
+    e.target.reset();
+    setShowForm(false)
   }
-
-  console.log(educationData)
 
   return (
     <form className="input-container" onSubmit={handleSubmitEducation}>
@@ -50,7 +49,7 @@ export function EducationForm({
 
           <button
            className="cancel-button" 
-           onClick={onCancel}>
+           onClick={() => setShowForm(false)}>
             Cancel
           </button>
           <button className="submit-button">Submit</button>
