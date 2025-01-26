@@ -1,3 +1,4 @@
+import DownloadPdfBtn from "./DownloadPdfBtn"
 import "./OutputComponent.css"
 
 function OutputComponent({
@@ -9,6 +10,14 @@ function OutputComponent({
 }) {
   return (
     <div className="output-component">
+
+      <DownloadPdfBtn
+        personalData={personalData}
+        educationData={educationData}
+        workData={workData}
+        customListData={customListData}
+        customTitle={customTitle}
+      />
 
       <div className="cv-container">
         
