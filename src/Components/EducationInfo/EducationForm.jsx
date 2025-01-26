@@ -48,11 +48,12 @@ export function EducationForm({
       <div className="button-container">
 
           <button
+            type="button"
            className="cancel-button" 
            onClick={() => setShowForm(false)}>
             Cancel
           </button>
-          <button className="submit-button">Submit</button>
+          <button type="submit" className="submit-button">Submit</button>
 
       </div>
     </form>
@@ -97,6 +98,9 @@ export function EditEducationForm({
         return i !== index
       })
     )
+
+    alert("Education info deleted!")
+
   }
  
   return (
@@ -154,6 +158,7 @@ export function EditEducationForm({
       <div className="button-container">
 
         <button 
+          type="button"
           className="delete-button"
           onClick={handleDeleteEducationData}
         >
@@ -162,6 +167,7 @@ export function EditEducationForm({
 
         <div className="button-item">
           <button 
+            type="button"
             className="cancel-button"
             onClick={(e) => {
               e.preventDefault();
@@ -170,9 +176,9 @@ export function EditEducationForm({
             >
               Cancel
           </button>
-          <button 
-          className="save-button"
-          //onClick={handleSaveUpdatedData}
+          <button
+            type="submit"
+            className="save-button"
           >Save</button>
         </div>
 
