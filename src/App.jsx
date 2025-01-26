@@ -7,22 +7,35 @@ import { appContext } from './Components/utils/AppContext'
 
 function App() {
   const [getPersonalData, setGetPersonalData] = useState([]);
+  const [getEducationData, setGetEducationData] = useState([]);
+  const [getWorkData, setGetWorkData] = useState([]);
+  const [getCustomTitle, setGetCustomTitle] = useState([]);
+  const [getCustomListData, setGetCustomListData] = useState([]);
 
-  const updatedPersonalData = (data) => {
-    setGetPersonalData(data)
-  }
-
-  console.log("Personal Data App comp:", getPersonalData);
+  // console.log("customTitle Data:", getCustomTitle);
+  // console.log("custom list Data:", getCustomListData);
+  
 
   return (
-    <>
     <div className="app-container">
-      <appContext.Provider value={{updatedPersonalData}}>
+      <appContext.Provider value={{
+        setGetPersonalData,
+        setGetEducationData,
+        setGetWorkData,
+        setGetCustomTitle,
+        setGetCustomListData
+        }}>
         <FormComponent />
       </appContext.Provider>
-      <OutputComponent personalData={getPersonalData} />
+
+      <OutputComponent 
+        personalData={getPersonalData}
+        educationData={getEducationData}
+        workData={getWorkData}
+        customTitle={getCustomTitle}
+        customListData={getCustomListData}
+      />
     </div>
-    </>
   )
 }
 
