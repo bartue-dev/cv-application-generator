@@ -42,8 +42,8 @@ export function WorkInfoForm({ setShowForm, workInfoData, setWorkInfoData, }) {
 
       <div className="button-container">
 
-          <button className="cancel-button" onClick={() => setShowForm(false)}>Cancel</button>
-          <button className="submit-button">Submit</button>
+          <button type="button" className="cancel-button" onClick={() => setShowForm(false)}>Cancel</button>
+          <button type="submit" className="submit-button">Submit</button>
 
       </div>
     </form>
@@ -62,6 +62,7 @@ export function EditWOrkInfoForm({
   setWorkInfoData
 }) {
 
+  //update function
   function handleUpdateWorkInfoData(e) {
     e.preventDefault();
     
@@ -78,6 +79,7 @@ export function EditWOrkInfoForm({
       setIsEditForm(false)
   }
 
+  //delete function
   function handleDeleteWorkInfoData(e) {
     e.preventDefault();
 
@@ -86,6 +88,9 @@ export function EditWOrkInfoForm({
         return i !== index
       })
     )
+
+    alert("Work info deleted!")
+
   }
 
   return (
@@ -140,6 +145,7 @@ export function EditWOrkInfoForm({
       <div className="button-container">
 
         <button 
+          type="button"
           className="delete-button"
           onClick={handleDeleteWorkInfoData}
         >
@@ -148,12 +154,15 @@ export function EditWOrkInfoForm({
 
         <div className="button-item">
           <button
+            type="button"
            className="cancel-button"
            onClick={() => setIsEditForm(false)}
            >
             Cancel
-            </button>
+          </button>
+
           <button 
+            type="submit"
             className="submit-button"
           >Save</button>
         </div>
