@@ -2,19 +2,24 @@ import "./PersonalInfo.css";
 import Icon from '@mdi/react';
 import { mdiChevronDown } from '@mdi/js';
 import { appContext } from "../utils/AppContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 function PersonalInfo({ isActive, onShow}) {
-  const context = useContext(appContext)
-
   const [personalInfoData, setPersonalInfoData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    portfolio: ""
+    name: "Light Yagami",
+    email: "lightyagami@gmail.com",
+    phone: "03-1234-5678",
+    address: "Tokyo, Japan"
   });
 
   //console.log("personal info data",personalInfoData);
+
+  const context = useContext(appContext);
+  const setGetPersonalData = context.setGetPersonalData
+
+  useEffect(() => {
+    setGetPersonalData(personalInfoData);
+  }, [setGetPersonalData, personalInfoData])
   
   function handleInputChange(e) {
 
@@ -24,8 +29,6 @@ function PersonalInfo({ isActive, onShow}) {
     }
 
     setPersonalInfoData(newData)
-
-    context.updatedPersonalData(newData)
   }
 
   
@@ -50,7 +53,6 @@ function PersonalInfo({ isActive, onShow}) {
           <input 
           type="text" 
           name="name" 
-          id="name-id"
           value={personalInfoData.name}
           onChange={(e) => 
             handleInputChange(e)
@@ -64,7 +66,6 @@ function PersonalInfo({ isActive, onShow}) {
           <input 
           type="email" 
           name="email" 
-          id="email-id"
           value={personalInfoData.email}
           onChange={(e) => handleInputChange(e)}
           />
@@ -76,7 +77,6 @@ function PersonalInfo({ isActive, onShow}) {
           <input 
           type="tel" 
           name="phone" 
-          id="phone-id"
           value={personalInfoData.phone}
           onChange={(e) => handleInputChange(e)}
           />
@@ -84,12 +84,11 @@ function PersonalInfo({ isActive, onShow}) {
         </label>
 
         <label>
-          Portfolio
+          Address
           <input 
-          type="tel" 
-          name="portfolio" 
-          id="portfolio-id"
-          value={personalInfoData.portfolio}
+          type="text" 
+          name="address" 
+          value={personalInfoData.address}
           onChange={(e) => handleInputChange(e)}
           />
           
