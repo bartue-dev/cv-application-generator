@@ -1,15 +1,104 @@
 .output-component {
   width: 100%;
   height: 100vh;
-  font-family: Calibri;
+  font-family: arial;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-items: center;
+  align-content: center;
+  overflow-y: auto;
+  scrollbar-width: thin;
+
+  padding: 20px;
 }
 
 .output-component .cv-container {
-  border: 1px solid black;
   width: 450px;
-  height: 550px;
+  min-height: 550px;
+  padding: 20px;
+  
+  box-shadow: 0 0 4px 1.5px rgb(238, 237, 237);
+  word-wrap: break-word;
+}
+
+/* personal info data */
+.output-component .cv-container .personal-info-output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.output-component .cv-container .personal-info-output .name {
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.output-component .cv-container .personal-info-output .phone, 
+.output-component .cv-container .personal-info-output .address,
+.output-component .cv-container .personal-info-output .email {
+
+  font-size: 0.6rem;
+  font-weight: normal;
+}
+
+.output-component .cv-container .personal-info-output .address {
+  text-transform: capitalize;
+}
+
+
+.output-component .cv-container .personal-info-output .email {
+  margin-top: 10px;
+}
+
+/* education info data & so on */
+.output-component .education-info-output,
+.output-component .work-info-output,
+.output-component .custom-list-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
+.output-component .education-info-output h1,
+.output-component .work-info-output h1,
+.output-component  .custom-list-info h1{
+  font-size: 0.8rem;
+}
+
+.output-component .education-info-output .education-list,
+.output-component .work-info-output .work-list,
+.output-component  .custom-list-info .custom-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 0.6rem;
+  gap: 2px;
+}
+
+.output-component .education-info-output .education-list .left,
+.output-component .work-info-output .work-list .left,
+.output-component  .custom-list-info .custom-list .left{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+}
+
+.output-component .education-info-output .education-list .right,
+.output-component .work-info-output .work-list .right,
+.output-component  .custom-list-info .custom-list .right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.output-component .education-info-output .education-list .last,
+.output-component .work-info-output .work-list .last,
+.output-component  .custom-list-info .custom-list .last {
+  grid-column: 1 / -1;
+  margin-top: 5px;
 }
