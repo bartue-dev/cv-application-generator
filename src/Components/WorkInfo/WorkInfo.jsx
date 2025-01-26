@@ -1,17 +1,38 @@
 import "./WorkInfo.css";
 import Icon from '@mdi/react';
 import { mdiChevronDown, mdiPlus, mdiPencil } from '@mdi/js';
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { WorkInfoForm, EditWOrkInfoForm} from "./WorkInfoForm";
+import { appContext } from "../utils/AppContext";
 
 function WorkInfo({ isActive, onShow }) {
   const [showForm, setShowForm] = useState(false);
-  const [workInfoData, setWorkInfoData] = useState([]);
+  const [workInfoData, setWorkInfoData] = useState([{
+    company: "Google",
+    position: "Software Engineer",
+    year: "2012-2015",
+    location: "1600 Amphitheatre Parkway in Mountain View, California",
+    description: "A highly skilled engineer who designs, develops, tests, and deploys innovative software solutions across a variety of Google products",
+    id: 1
+  }, {
+    company: "Facebook",
+    position: "Software Engineer",
+    year: "2015-2020",
+    location: "Menlo Park, Unites States of America",
+    description: "Designs, Develops, Tests, and Modifies software applications and systems",
+    id: 2
+  }]);
   const [isEditForm, setIsEditForm] = useState(0);
   
   // console.log(isEditForm);
   // console.log("Work info Data", workInfoData)
-  
+
+  const context = useContext(appContext);
+  const setGetWorkData = context.setGetWorkData;
+
+  useEffect(() => {
+    setGetWorkData(workInfoData)
+  }, [setGetWorkData, workInfoData])
 
   return (
     <div className="work-experience-info">
