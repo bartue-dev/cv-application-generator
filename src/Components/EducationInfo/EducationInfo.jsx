@@ -1,15 +1,31 @@
 import "./EducationInfo.css"
 import Icon from '@mdi/react';
 import { mdiChevronDown, mdiPlus, mdiPencil } from '@mdi/js';
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { EditEducationForm, EducationForm } from "./EducationForm"
+import { appContext } from "../utils/AppContext";
 
 function EducationInfo({ isActive, onShow }) {
   const [showForm, setShowForm] = useState(false);
-  const [educationData, setEducationData] = useState([]);
+  const [educationData, setEducationData] = useState([{
+    school: "Harvard University",
+    course: "Bachelor of Computer Science",
+    year: "2006-2010",
+    latinHonors: "Summa Cum Laude",
+    description: "•Theoretical computer science, •Artificial intelligence, •Privacy and security, •Data management systems, •Computational linguistics",
+    id: 1
+  }]);
   const [isEditForm, setIsEditForm] = useState(0);
 
   // console.log("Education Data: ", educationData)
+
+  const context = useContext(appContext);
+  const setGetEducationData = context.setGetEducationData;
+
+  useEffect(() => {
+    setGetEducationData(educationData)
+  }, [setGetEducationData, educationData]);
+
 
   return (
 
