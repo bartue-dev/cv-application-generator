@@ -1,15 +1,36 @@
 import "./CustomInfo.css";
 
 function CustomInfo({
-  inputValue,
-  setInputValue,
-  customInfoList,
-  setCustomInfoList,
+  customTitleList,
+  setCustomTitleList,
   customActiveIndex,
   setCustomActiveIndex
 }) {
+
+  function handleSubmitTitleList(e) {
+    e.preventDefault();
+
+    setCustomActiveIndex(customActiveIndex + 1)
+
+    const titleData = new FormData(e.target);
+    const titleDataDetails = Object.fromEntries(titleData);
+
+    titleDataDetails.id = customTitleList.length + 1
+    titleDataDetails.customActiveIndex = customActiveIndex
+
+    if (!titleDataDetails["title"]) {
+      alert("Invalid Custom Title")
+      return
+    }
+
+    setCustomTitleList(prev => [...prev , titleDataDetails]);
+
+    e.target.reset();
+  }
+
+
   return (
-    <div className="custom-info">
+    <div className="custom-info" onSubmit={handleSubmitTitleList}>
 
       <form>
         <label htmlFor="title-id">
@@ -22,23 +43,9 @@ function CustomInfo({
             name="title" 
             id="title-id" 
             placeholder="Add title"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
             />
           <button 
             type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-
-              if (inputValue === "") {
-                alert("Invalid input")
-              } else {
-                setCustomActiveIndex(customActiveIndex + 1)
-                setCustomInfoList([...customInfoList, {id: customInfoList.length++, customActiveIndex: customActiveIndex, inputValue}]);
-  
-                setInputValue("")
-              }
-            }}
             >Add</button>
         </div>
       </form>
