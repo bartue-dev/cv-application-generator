@@ -2,6 +2,7 @@ export function CustomInfoForm({
   setAddCancelBtn,
   customListData,
   setCustomListData,
+  title
 }) {
 
   function handleSubmitCustomListData(e) {
@@ -11,6 +12,7 @@ export function CustomInfoForm({
     const customDataDetails = Object.fromEntries(customData);
 
     customDataDetails.id = customListData.length + 1;
+    customDataDetails.customTitle = title
 
     setCustomListData((prev) => [...prev, customDataDetails]);
 
@@ -48,6 +50,7 @@ export function CustomInfoForm({
       <div className="button-container">
 
           <button 
+            type="button"
             className="cancel-button"
             onClick={(e) => {
               e.preventDefault();
@@ -57,7 +60,7 @@ export function CustomInfoForm({
           >
             Cancel
           </button>
-          <button className="submit-button">Submit</button>
+          <button type="submit" className="submit-button">Submit</button>
           
       </div>
 
@@ -66,7 +69,7 @@ export function CustomInfoForm({
 }
 
 export function EditCustomInfoForm({ 
-  inputValue,
+  title,
   setCustomListData,
   index,
   setIsEditForm,
@@ -111,7 +114,7 @@ export function EditCustomInfoForm({
   return (
     <>
       <form className="edit-input-container" onSubmit={handleUpdateCustomListData}>
-        <h2>Edit {inputValue}</h2>
+        <h2>Edit {title}</h2>
         <label>
           Info # 1
           <input 
@@ -158,6 +161,7 @@ export function EditCustomInfoForm({
         <div className="button-container">
 
           <button 
+            type="button"
             className="delete-button"
             onClick={handleDeleteCustomListData}
           >
@@ -166,14 +170,15 @@ export function EditCustomInfoForm({
 
           <div className="button-item">
             <button 
+              type="button"
               className="cancel-button"
               onClick={() => setIsEditForm(false)}
               >
                 Cancel
             </button>
             <button 
-            className="save-button"
-            //onClick={handleSaveUpdatedData}
+              type="submit"
+              className="save-button"
             >Save</button>
           </div>
 
