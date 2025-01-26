@@ -4,26 +4,27 @@ import { CustomInfoForm, EditCustomInfoForm } from "../AddMoreInfo/CustomInfoFor
 import { useState } from 'react';
 
 function CustomList({
-  inputValue,
+  title,
   isActive,
   onShow,
-  setCustomInfoList,
-  index
+  setCustomTitleList,
+  index,
+  customListData,
+  setCustomListData
 }){
-  const [customListData, setCustomListData] = useState([]);
   const [addCancelBtn, setAddCancelBtn] = useState(false);
   const [isEditForm, setIsEditForm] = useState(0);
   
   function handleDeleteCustomInfoList(e) {
     e.preventDefault();
 
-    setCustomInfoList(prev => (
+    setCustomTitleList(prev => (
       prev.filter((item, i) => {
         return i !== index
       })
     ))
 
-    alert(`${inputValue} Deleted`)
+    alert(`${title} Deleted`)
   }
 
   //console.log(`custom list ${inputValue}:` ,customListData);
@@ -32,7 +33,7 @@ function CustomList({
     <div className="custom-list">
 
         <div className="heading-container">
-          <h1>{ inputValue}</h1>  
+          <h1>{ title }</h1>  
          
 
          <div className="icon-container">
@@ -60,8 +61,13 @@ function CustomList({
       {isActive &&
         (
           <>
-
-            {customListData.map((list, index) => (
+            {customListData
+            .reduce((acc, curr, index) => {
+              if (curr.customTitle === title) {
+                acc.push({...curr, index})
+              }
+              return acc
+            }, []).map(list => (
               <div className="custom-list-data" key={list.id}>
 
                 {
@@ -69,12 +75,12 @@ function CustomList({
                   (
                     <EditCustomInfoForm 
                       {...list}
-                      inputValue={inputValue}
+                      title={title}
                       isEditForm={isEditForm}
                       setIsEditForm={setIsEditForm}
                       customListData={customListData}
                       setCustomListData={setCustomListData}
-                      index={index}
+                      index={list.index}
                     />
                   )
                   :
@@ -102,7 +108,7 @@ function CustomList({
             {addCancelBtn ? 
               (
               <CustomInfoForm
-                inputValue={inputValue}
+                title={title}
                 setAddCancelBtn={setAddCancelBtn}
                 customListData={customListData}
                 setCustomListData={setCustomListData}
