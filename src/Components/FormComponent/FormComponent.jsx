@@ -50,37 +50,48 @@ function FormComponent() {
 
   return (
     <div className="form-component">
-        <PersonalInfo 
-          isActive={activeIndex === 0} 
-          onShow={() => setActiveIndex(0)}
-          />
-        <EducationInfo 
-          isActive={activeIndex === 1} 
-          onShow={() => setActiveIndex(1)} />
-        <WorkInfo 
-          isActive={activeIndex === 2} 
-          onShow={() => setActiveIndex(2)}/>
+      <PersonalInfo 
+        isActive={activeIndex === 0} 
+        onShow={() => setActiveIndex(0)}
+        />
+      <EducationInfo 
+        isActive={activeIndex === 1} 
+        onShow={() => setActiveIndex(1)} />
+      <WorkInfo 
+        isActive={activeIndex === 2} 
+        onShow={() => setActiveIndex(2)}/>
 
-        {customTitleList.map((list, index) => (
-           <CustomList 
-            key={list.id}
-            {...list}
-            index={index}
-            customTitleList={customTitleList}
-            setCustomTitleList={setCustomTitleList}
-            customListData={customListData}
-            setCustomListData={setCustomListData}
-            isActive={activeIndex === list.customActiveIndex}
-            onShow={() => setActiveIndex(list.customActiveIndex)}
-            />
-        ))}
-
-        <CustomInfo 
+      {customTitleList.map((list, index) => (
+          <CustomList 
+          key={list.id}
+          {...list}
+          index={index}
           customTitleList={customTitleList}
-          setCustomTitleList={setCustomTitleList} 
-          customActiveIndex={customActiveIndex}
-          setCustomActiveIndex={setCustomActiveIndex}
+          setCustomTitleList={setCustomTitleList}
+          customListData={customListData}
+          setCustomListData={setCustomListData}
+          isActive={activeIndex === list.customActiveIndex}
+          onShow={() => setActiveIndex(list.customActiveIndex)}
           />
+      ))}
+
+      <CustomInfo 
+        customTitleList={customTitleList}
+        setCustomTitleList={setCustomTitleList} 
+        customActiveIndex={customActiveIndex}
+        setCustomActiveIndex={setCustomActiveIndex}
+        />
+
+      <div className="create-by">
+        <a 
+          href="https://github.com/bartue-dev" 
+          target="_blank"
+          style={{color: "white", cursor: "pointer"}}
+        >
+        bartue.dev
+        </a>
+      </div>
+
     </div>
   )
 }
