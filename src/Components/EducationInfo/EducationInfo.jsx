@@ -6,7 +6,10 @@ import { EditEducationForm, EducationForm } from "./EducationForm"
 import { appContext } from "../utils/AppContext";
 
 function EducationInfo({ isActive, onShow }) {
+  //showForm state. Hold a boolean value that show and not show the form base on the state value
   const [showForm, setShowForm] = useState(false);
+
+  //educationData. Hold the data that is submitted by the user
   const [educationData, setEducationData] = useState([{
     school: "Harvard University",
     course: "Bachelor of Computer Science",
@@ -15,13 +18,17 @@ function EducationInfo({ isActive, onShow }) {
     description: "•Theoretical computer science, •Artificial intelligence, •Privacy and security, •Data management systems, •Computational linguistics",
     id: 1
   }]);
+
+  //isEditForm, allows the user to open the specific edit form if edit button is clicked
   const [isEditForm, setIsEditForm] = useState(0);
 
   // console.log("Education Data: ", educationData)
 
+  //import appContext then use it for useContext so it would pass the collected data from here to parent component
   const context = useContext(appContext);
   const setGetEducationData = context.setGetEducationData;
 
+  //useEffect, use this hook so it would collect the data asynchronously cause state hook is asynchronous
   useEffect(() => {
     setGetEducationData(educationData)
   }, [setGetEducationData, educationData]);
@@ -56,7 +63,6 @@ function EducationInfo({ isActive, onShow }) {
                     educationData={educationData}
                     setEducationData={setEducationData}
                     index={index}
-                    //onUpdate={handleEducationDataChange}
                   /> :
                     
                     <>
@@ -67,6 +73,7 @@ function EducationInfo({ isActive, onShow }) {
 
                       <button
                         className="edit-button"
+                        /* update the isEditForm */
                         onClick={() => setIsEditForm(info.id)}
                       >
                         <Icon path={mdiPencil} size={1} />

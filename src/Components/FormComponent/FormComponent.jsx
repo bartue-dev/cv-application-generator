@@ -8,7 +8,10 @@ import { useContext, useEffect, useState } from "react";
 import { appContext } from "../utils/AppContext";
 
 function FormComponent() {
+  //use for accordion. displays component one at a time base on the active index
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  //customTitleList. State that hold the data for custom title(section)
   const [customTitleList, setCustomTitleList] = useState([{
     title: "Projects",
     customActiveIndex: 3,
@@ -18,6 +21,8 @@ function FormComponent() {
     customActiveIndex: 4,
     id: 2
   }]);
+
+  //customListData. State that hold the data that added by the user base on the custom title
   const [customListData, setCustomListData] = useState([{
     customTitle: "Projects",
     infoOne: "Fingerprint Voting System",
@@ -35,14 +40,18 @@ function FormComponent() {
     description: "As a software engineer with experience at leading companies like Facebook and Google,I specialize in building scalable, high-performance systems using languages like Python,Java, and JavaScript, while expertly tackling complex problems and optimizing solutions. I’m passionate about collaboration, innovation, and leveraging the latest technologies to create impactful software that delivers exceptional user experiences.",
     id: 1
   }]);
+
+  //customActiveIndex. Allows to display on at a time the new custom title list along with the fixed components
   const [customActiveIndex, setCustomActiveIndex] = useState(3);
 
-  console.log("custom title list:", customTitleList);
+  // console.log("custom title list:", customTitleList);
 
+  //import appContext then use it for useContext so it would pass the collected data from here to parent component
   const context = useContext(appContext);
   const setGetCustomTitle = context.setGetCustomTitle;
   const setGetCustomListData = context.setGetCustomListData;
 
+  //useEffect, use this hook so it would collect the data asynchronously cause state hook is asynchronous
   useEffect(() => {
     setGetCustomTitle(customTitleList);
     setGetCustomListData(customListData);
@@ -82,6 +91,7 @@ function FormComponent() {
         setCustomActiveIndex={setCustomActiveIndex}
         />
 
+      {/* link of github */}
       <div className="create-by">
         <a 
           href="https://github.com/bartue-dev" 

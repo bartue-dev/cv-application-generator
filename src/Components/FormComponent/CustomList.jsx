@@ -12,13 +12,19 @@ function CustomList({
   customListData,
   setCustomListData
 }){
+
+  //addCancelBtn state, hold a boolean value that allows user to not display the form if cancel button is clicked
   const [addCancelBtn, setAddCancelBtn] = useState(false);
+
+  //isEditForm, allows the user to open the specific edit form if edit button is clicked
   const [isEditForm, setIsEditForm] = useState(0);
   
-  function handleDeleteCustomInfoList(e) {
+  //delete function. delete custom title list data
+  function handleDeleteCustomTitleList(e) {
     e.preventDefault();
 
     setCustomTitleList(prev => (
+      //delete one data if custom title index and render index match
       prev.filter((item, i) => {
         return i !== index
       })
@@ -43,7 +49,7 @@ function CustomList({
           size={1.8}
           color="red"
           className="delete-icon"
-          onClick={handleDeleteCustomInfoList}
+          onClick={handleDeleteCustomTitleList}
           />
 
           <Icon 
@@ -61,16 +67,20 @@ function CustomList({
       {isActive &&
         (
           <>
+          {/* uses reduce so it could filter the data base on the customTitle and render title and remain the original index that can be use for deletion and updating the custom list data. Then render the filtered data using map method */}
             {customListData
             .reduce((acc, curr, index) => {
               if (curr.customTitle === title) {
+                //push the all the data using spread syntax if customTitle and render title match as well as its index
                 acc.push({...curr, index})
               }
               return acc
-            }, []).map(list => (
+            }, [])
+            .map(list => (
               <div className="custom-list-data" key={list.id}>
 
                 {
+                  /* open a specific edit form if isEditForm is equal to list.id. Update the isEditForm using the onClick event pass on the edit button */
                   isEditForm === list.id ? 
                   (
                     <EditCustomInfoForm 
@@ -93,6 +103,7 @@ function CustomList({
 
                     <button
                       className="edit-button"
+                      /* update the isEditForm */
                       onClick={() => setIsEditForm(list.id)}
                     >
                       <Icon path={mdiPencil} size={1} />
@@ -105,7 +116,9 @@ function CustomList({
               </div>
             ))}
 
-            {addCancelBtn ? 
+            {
+            /* if addCancelBtn state is true then do show the customInfoForm Component */
+            addCancelBtn ? 
               (
               <CustomInfoForm
                 title={title}
@@ -122,6 +135,7 @@ function CustomList({
                 <button
                 onClick={(e) => {
                   e.preventDefault();
+                  /* update the addCancelBtn to true if add button is clicked */
                   setAddCancelBtn(true)
                 }}
                 >

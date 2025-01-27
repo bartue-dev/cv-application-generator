@@ -3,7 +3,7 @@ import CvPdf from "./CvPdf"
 
 function DownloadPdfBtn({ personalData, educationData, workData, customListData, customTitle}) {
 
-
+  //style the download button
   const btnStyle = {
     fontFamily: "Work Sans",
     border: "transparent",
@@ -16,21 +16,24 @@ function DownloadPdfBtn({ personalData, educationData, workData, customListData,
   }
 
   return (
+    /* uses PDFDownloadLink component that is built in react-pdf library that allows user to download a component as pdf */
     <PDFDownloadLink
-    document={
-      <CvPdf
-        personalData={personalData}
-        educationData={educationData}
-        workData={workData}
-        customListData={customListData}
-        customTitle={customTitle}
-      />
-    }
-    fileName="my-cv.pdf"
-  >
-    <button style={btnStyle}>
-      Download CV
-    </button>
+      document={
+        /* import CvPdf component and pass all the data as props. this will be the component that downloaded as a pdf */
+        <CvPdf
+          personalData={personalData}
+          educationData={educationData}
+          workData={workData}
+          customListData={customListData}
+          customTitle={customTitle}
+        />
+      }
+      fileName="my-cv.pdf"
+    >
+      {/* button inside the react-pdf library PDFDownloadLink component */}
+      <button style={btnStyle}>
+        Download CV
+      </button>
   </PDFDownloadLink>
   )
 }

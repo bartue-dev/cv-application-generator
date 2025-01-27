@@ -5,15 +5,23 @@ export function CustomInfoForm({
   title
 }) {
 
+  //submit the custom list data
+  //customListData is a state of data that handle the information submitted by user
+  //customListData is in the FormComponent(Parent Component of CustomInfo Component)
   function handleSubmitCustomListData(e) {
     e.preventDefault();
 
+    //uses FormData Api to collect all the data from the form inputs
     const customData = new FormData(e.target);
     const customDataDetails = Object.fromEntries(customData);
 
+    //added an id that can be use as an key and for update
     customDataDetails.id = customListData.length + 1;
+
+    //added a customTitle that can be use for categories all the custom list data base on custom title
     customDataDetails.customTitle = title
 
+    //Add the new data
     setCustomListData((prev) => [...prev, customDataDetails]);
 
     e.target.reset();
@@ -80,15 +88,18 @@ export function EditCustomInfoForm({
   description
 }) {
 
-  //updated function
+  //updated function. uses a onSubmit event to updated the data. But it only update a specific data if custom list data index and render index match
   function handleUpdateCustomListData(e) {
     e.preventDefault();
 
+    //use the FormData Api that collect all the data form the form inputs
     const updatedData = new FormData(e.target);
     const updatedDataDetails = Object.fromEntries(updatedData);
 
     setCustomListData(prev => (
+      //update a specific data if custom list index and render index match
       prev.map((item, i) => {
+      //use spread syntax to update the data base on its key property meaning the name of the input is the key property of the data
         return i === index ? {... item, ...updatedDataDetails} : item;
       })
     ))
@@ -97,7 +108,7 @@ export function EditCustomInfoForm({
     setIsEditForm(false)
   }
 
-  //delete function
+  //delete function. Delete specific data if render index and custom list data index match using filter method
   function handleDeleteCustomListData(e) {
     e.preventDefault();
 
@@ -172,7 +183,9 @@ export function EditCustomInfoForm({
             <button 
               type="button"
               className="cancel-button"
-              onClick={() => setIsEditForm(false)}
+              onClick={() => 
+                //do not show edit form if isEditForm state is false
+                setIsEditForm(false)}
               >
                 Cancel
             </button>

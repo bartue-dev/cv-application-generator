@@ -14,13 +14,17 @@ function PersonalInfo({ isActive, onShow}) {
 
   //console.log("personal info data",personalInfoData);
 
+  //import appContext then use it for useContext so it would pass the collected data from here to parent component
   const context = useContext(appContext);
   const setGetPersonalData = context.setGetPersonalData
 
+  //useEffect, use this hook so it would collect the data asynchronously cause state hook is asynchronous
   useEffect(() => {
     setGetPersonalData(personalInfoData);
   }, [setGetPersonalData, personalInfoData])
   
+
+  //Collect all the data from the inputs using onChange event. Every time use type to the input it updated the value of the name(key property)  of the state array of object. Also this allows to render the data to the page real time
   function handleInputChange(e) {
 
     const newData = {

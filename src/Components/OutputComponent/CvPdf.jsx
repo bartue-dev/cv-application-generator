@@ -2,6 +2,8 @@ import { Document, Page, Text, View, } from "@react-pdf/renderer";
 import { styles } from "../utils/PdfStyleSheet";
 
 function CvPdf({ personalData, educationData, workData, customListData, customTitle }) {
+
+  /* render all the data that are pass as props form DownloadBtn component. Uses react-pdf syntax. This will be the component that is render as a pdf */
   return (
     <Document>
       <Page size="A4" style={styles.page}>
