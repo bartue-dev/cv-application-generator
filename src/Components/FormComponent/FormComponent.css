@@ -142,6 +142,7 @@
   outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
+  width: 100%;
 }
 .form-component .custom-list .input-container .button-container {
   grid-column: 1 / -1;
@@ -255,6 +256,7 @@
   outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
+  width: 100%;
 }
 .form-component .custom-list .custom-list-data .edit-input-container .button-container {
   grid-column: 1 / -1;
@@ -296,4 +298,59 @@
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 12px;
+}
+
+
+@media(max-width: 1000px) {
+  .form-component .custom-list .heading-container h1 {
+    font-size: 1.5rem;
+  }
+
+    .form-component .custom-list .custom-list-data  h2 {
+    font-size: 0.9rem;
+  }
+  
+  .form-component .custom-list .custom-list-data  h3 {
+    font-size: 0.9rem;
+    font-weight: normal;
+
+    margin-right: 5px;
+  }
+
+  .form-component .custom-list .add-custom-container h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+
+  .form-component .custom-list .custom-list-data .edit-input-container h2 {
+    font-size: 1.2rem;
+  } 
+
+    .form-component .custom-list .custom-list-data .edit-input-container label{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 1.1rem;
+  }
+
+    .form-component .custom-list .custom-list-data .edit-input-container label input,
+    .form-component .custom-list .custom-list-data .edit-input-container textarea{
+    font-size: 0.8rem;
+  }
+  
+    .form-component .custom-list .custom-list-data .edit-input-container .button-container button {
+    outline: none;
+    padding: 6px 15px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+    .form-component .custom-list .custom-list-data  .edit-input-container .button-container .button-item {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+
+  }
 }
