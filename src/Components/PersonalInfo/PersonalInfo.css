@@ -23,6 +23,7 @@
   font-weight: normal;
   margin-bottom: 20px;
 }
+
 .personal-info .input-container {
   display: grid;
   grid-template-columns: repeat(2,1fr);;
@@ -55,4 +56,32 @@
   outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
+  width: 100%;
+}
+
+@media(max-width: 1000px) {
+  .personal-info .heading-container h1 {
+    font-size: 1.5rem;
+  }
+
+
+  .personal-info .input-container h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+  
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+  } 
+  
+  .personal-info .input-container label{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 1.1rem;
+  }
+  
+  .personal-info .input-container label input{
+    font-size: 0.8rem;
+    
+  }
 }
