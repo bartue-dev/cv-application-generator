@@ -8,9 +8,12 @@ function OutputComponent({
   customTitle,
   customListData
 }) {
+
+  /* render to all the data collected to the output (component) */
   return (
     <div className="output-component">
 
+      {/* Import DownloadPdfBtn component and pass all the data as props */}
       <DownloadPdfBtn
         personalData={personalData}
         educationData={educationData}

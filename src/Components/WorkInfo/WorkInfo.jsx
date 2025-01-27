@@ -6,7 +6,10 @@ import { WorkInfoForm, EditWOrkInfoForm} from "./WorkInfoForm";
 import { appContext } from "../utils/AppContext";
 
 function WorkInfo({ isActive, onShow }) {
+  //showForm state. Hold a boolean value that show and not show the form base on the state value
   const [showForm, setShowForm] = useState(false);
+
+   //wornInfoDAta. Hold the data that is submitted by the user
   const [workInfoData, setWorkInfoData] = useState([{
     company: "Google",
     position: "Software Engineer",
@@ -22,14 +25,18 @@ function WorkInfo({ isActive, onShow }) {
     description: "Designs, Develops, Tests, and Modifies software applications and systems",
     id: 2
   }]);
+
+  //isEditForm, allows the user to open the specific edit form if edit button is clicked
   const [isEditForm, setIsEditForm] = useState(0);
   
   // console.log(isEditForm);
   // console.log("Work info Data", workInfoData)
 
+  //import appContext then use it for useContext so it would pass the collected data from here to parent component
   const context = useContext(appContext);
   const setGetWorkData = context.setGetWorkData;
 
+  //useEffect, use this hook so it would collect the data asynchronously cause state hook is asynchronous
   useEffect(() => {
     setGetWorkData(workInfoData)
   }, [setGetWorkData, workInfoData])
@@ -69,6 +76,7 @@ function WorkInfo({ isActive, onShow }) {
                   <button
                     className="edit-button"
                     onClick={() => 
+                      /* update the isEditForm */
                       setIsEditForm(info.id)
                     }
                   >

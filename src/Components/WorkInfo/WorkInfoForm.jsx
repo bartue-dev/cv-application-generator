@@ -1,13 +1,17 @@
 export function WorkInfoForm({ setShowForm, workInfoData, setWorkInfoData, }) {
 
+  //submit the form data to workInfoData state and handle(hold) the data
   function handleSubmitWorkInfo(e) {
     e.preventDefault();
 
+    //uses FormData Api to collect all the data from the form inputs
     const workData = new FormData(e.target);
     const workDataDetails = Object.fromEntries(workData);
 
+    //added an id that can be use as an key and for update
     workDataDetails.id = workInfoData.length + 1;
 
+    //Add the new data
     setWorkInfoData((prev) => [...prev, workDataDetails]);
     
     e.target.reset();
@@ -62,15 +66,18 @@ export function EditWOrkInfoForm({
   setWorkInfoData
 }) {
 
-  //update function
+  //updated function. uses a onSubmit event to updated the data. But it only update a specific data if work info data index and render index match
   function handleUpdateWorkInfoData(e) {
     e.preventDefault();
     
+     //use the FormData Api that collect all the data form the form inputs
       const updatedData = new FormData(e.target);
       const updatedDataDetails = Object.fromEntries(updatedData);
 
       setWorkInfoData(prev => (
+        //update a specific data if work info data index and render index match
         prev.map((item, i) => {
+          //use spread syntax to update the data base on its key property meaning the name of the input is the key property of the data
           return i === index ? {...item, ...updatedDataDetails} : item
         })
       ))
@@ -79,7 +86,7 @@ export function EditWOrkInfoForm({
       setIsEditForm(false)
   }
 
-  //delete function
+  //delete function. Delete specific data if render index and education data index match using filter method
   function handleDeleteWorkInfoData(e) {
     e.preventDefault();
 

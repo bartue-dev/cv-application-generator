@@ -5,14 +5,18 @@ export function EducationForm({
   setEducationData,
  }) {
 
+  //submit the form data to educationData state and handle(hold) the data
   function handleSubmitEducation(e) {
     e.preventDefault()
 
+     //uses FormData Api to collect all the data from the form inputs
     const educationInfo = new FormData(e.target)
     const educationInfoDetails = Object.fromEntries(educationInfo)
 
-    educationInfoDetails.id = educationData.length+1;
+    //added an id that can be use as an key and for update
+    educationInfoDetails.id = educationData.length + 1;
 
+    //Add the new data
     setEducationData((prev) => [...prev, educationInfoDetails])
 
     e.target.reset();
@@ -72,15 +76,18 @@ export function EditEducationForm({
   setEducationData
    }) {
 
-  // Update function
+  //updated function. uses a onSubmit event to updated the data. But it only update a specific data if education data index and render index match
   function handleUpdateEducationData(e) {
     e.preventDefault();
 
+    //use the FormData Api that collect all the data form the form inputs
     const updatedData = new FormData(e.target);
     const updatedDataDetails = Object.fromEntries(updatedData);
 
     setEducationData(prev => (
+      //update a specific data if education data index and render index match
       prev.map((item, i) => {
+         //use spread syntax to update the data base on its key property meaning the name of the input is the key property of the data
         return i === index ? {...item, ...updatedDataDetails} : item
       })
     ))
@@ -89,7 +96,7 @@ export function EditEducationForm({
     setIsEditForm(false);
   }
 
-  // Delete function
+  //delete function. Delete specific data if render index and education data index match using filter method
   function handleDeleteEducationData(e) {
     e.preventDefault();
 
