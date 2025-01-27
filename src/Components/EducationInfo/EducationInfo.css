@@ -74,6 +74,7 @@
   outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
+  width: 100%;
 }
 .education-info .input-container .button-container {
   grid-column: 1 / -1;
@@ -213,7 +214,9 @@
   outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
+  width: 100%;
 }
+
 .education-info .edit-input-container .button-container {
   grid-column: 1 / -1;
   display: flex;
@@ -256,5 +259,65 @@
   border-radius: 12px;
 }
 
+@media(max-width: 1000px) {
+  .education-info .heading-container h1 {
+    font-size: 1.5rem;
+  }
 
+  .education-info .education-list .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
 
+  .education-info .education-list h2 {
+    font-size: 0.9rem;
+  }
+  
+  .education-info .education-list h3 {
+    font-size: 0.9rem;
+    font-weight: normal;
+
+    margin-right: 5px;
+  }
+
+  /* add education con */
+  .education-info .add-education-container h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+
+  /* edit input con */
+  .education-info .edit-input-container h2 {
+    font-size: 1.2rem;
+  } 
+
+  .education-info .edit-input-container label{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 1.1rem;
+  }
+
+  .education-info .edit-input-container label input,
+  .education-info .edit-input-container textarea{
+    font-size: 0.8rem;
+  }
+  
+  .education-info .edit-input-container .button-container button {
+    outline: none;
+    padding: 6px 15px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .education-info .edit-input-container .button-container .button-item {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+
+  }
+}
