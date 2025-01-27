@@ -70,6 +70,7 @@
   outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
+  width: 100%;
 }
 .work-experience-info .input-container .button-container {
   grid-column: 1 / -1;
@@ -211,6 +212,7 @@
   outline-color: lightgray;
   font-size: 1rem;
   padding: 8px;
+  width: 100%;
 }
 .work-experience-info .edit-input-container .button-container {
   grid-column: 1 / -1;
@@ -252,4 +254,60 @@
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 12px;
+}
+
+@media(max-width: 1000px) {
+  .work-experience-info .heading-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .work-experience-info .work-info-list h2 {
+    font-size: 0.9rem;
+  }
+  
+  .work-experience-info .work-info-list h3 {
+    font-size: 0.9rem;
+    font-weight: normal;
+
+    margin-right: 5px;
+  }
+
+  /* add work exp con */
+  .work-experience-info .add-work-experience-container h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+
+  /* edit input con */
+  .work-experience-info .edit-input-container h2 {
+    font-size: 1.2rem;
+  } 
+
+  .work-experience-info .edit-input-container label{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 1.1rem;
+  }
+
+  .work-experience-info .edit-input-container label input,
+  .work-experience-info .edit-input-container textarea{
+    font-size: 0.8rem;
+  }
+  
+  .work-experience-info .edit-input-container .button-container button {
+    outline: none;
+    padding: 6px 15px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .work-experience-info  .edit-input-container .button-container .button-item {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+
+  }
 }
