@@ -1,12 +1,15 @@
 # cv-application-generator
 
-Allows you to create a ready and formatted cv <br>
+Allows user to created a formatted and downloadable cv/resume <br>
 
-Built in react js
+## Built With
+
+-   ![ReactJS](https://img.shields.io/badge/REACTJS-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 
 ## Live Preview
 
 [View the live project here](https://cv-application-generator.vercel.app/)
 
 ---
+
 Thank you for checking it out! 🎉
