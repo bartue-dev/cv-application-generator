@@ -2,6 +2,8 @@
 
 Allows user to created a formatted and downloadable cv/resume <br>
 
+Got some bugs. Currently fixing it
+
 ## Built With
 
 -   ![ReactJS](https://img.shields.io/badge/REACTJS-61DAFB?style=for-the-badge&logo=react&logoColor=black)
