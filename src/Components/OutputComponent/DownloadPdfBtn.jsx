@@ -1,7 +1,7 @@
 import { PDFDownloadLink } from "@react-pdf/renderer"
 import CvPdf from "./CvPdf"
 
-function DownloadPdfBtn({ personalData, educationData, workData, customListData, customTitle}) {
+function DownloadPdfBtn() {
 
   //style the download button
   const btnStyle = {
@@ -20,13 +20,7 @@ function DownloadPdfBtn({ personalData, educationData, workData, customListData,
     <PDFDownloadLink
       document={
         /* import CvPdf component and pass all the data as props. this will be the component that downloaded as a pdf */
-        <CvPdf
-          personalData={personalData}
-          educationData={educationData}
-          workData={workData}
-          customListData={customListData}
-          customTitle={customTitle}
-        />
+        <CvPdf/>
       }
       fileName="my-cv.pdf"
     >
