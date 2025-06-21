@@ -1,7 +1,9 @@
 import { Document, Page, Text, View, } from "@react-pdf/renderer";
 import { styles } from "../utils/PdfStyleSheet";
+import useData from "../../hooks/useData";
 
-function CvPdf({ personalData, educationData, workData, customListData, customTitle }) {
+function CvPdf() {
+  const {personalData, educationData, workInfoData, customTitleList} = useData()
 
   /* render all the data that are pass as props form DownloadBtn component. Uses react-pdf syntax. This will be the component that is render as a pdf */
   return (
@@ -10,18 +12,18 @@ function CvPdf({ personalData, educationData, workData, customListData, customTi
         <View style={styles.container}>
           {/* Personal Info */}
           <View style={styles.personalInfo}>
-            <Text style={styles.name}>{personalData.name}</Text>
-            <Text style={styles.contactInfo}>{personalData.phone}</Text>
-            <Text style={styles.contactInfo}>{personalData.address}</Text>
+            <Text style={styles.name}>{personalData?.name}</Text>
+            <Text style={styles.contactInfo}>{personalData?.phone}</Text>
+            <Text style={styles.contactInfo}>{personalData?.address}</Text>
             <Text style={styles.contactInfo}>
-              <Text style={{ textDecoration: 'underline' }}>{personalData.email}</Text>
+              <Text style={{ textDecoration: 'underline' }}>{personalData?.email}</Text>
             </Text>
           </View>
 
           {/* Education */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Education</Text>
-            {educationData.map((list) => (
+            {educationData?.map((list) => (
               <View key={list.id} style={styles.entryContainer}>
                 <View style={styles.twoColumn}>
                   <View style={styles.leftColumn}>
@@ -43,7 +45,7 @@ function CvPdf({ personalData, educationData, workData, customListData, customTi
           {/* Work Experience */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Work Experience</Text>
-            {workData.map((list) => (
+            {workInfoData?.map((list) => (
               <View key={list.id} style={styles.entryContainer}>
                 <View style={styles.twoColumn}>
                   <View style={styles.leftColumn}>
@@ -63,11 +65,10 @@ function CvPdf({ personalData, educationData, workData, customListData, customTi
           </View>
 
           {/* Custom Sections */}
-          {customTitle.map((titleList) => (
-            <View key={titleList.id} style={styles.section}>
-              <Text style={styles.sectionTitle}>{titleList.title}</Text>
-              {customListData
-                .filter(list => list.customTitle === titleList.title)
+          {customTitleList?.map((list) => (
+            <View key={list.id} style={styles.section}>
+              <Text style={styles.sectionTitle}>{list.title}</Text>
+              {list.customListData
                 .map(list => (
                   <View key={list.id} style={styles.entryContainer}>
                     <View style={styles.twoColumn}>
