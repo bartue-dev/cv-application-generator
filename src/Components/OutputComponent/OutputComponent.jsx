@@ -1,26 +1,16 @@
 import DownloadPdfBtn from "./DownloadPdfBtn"
 import "./OutputComponent.css"
+import useData from "../../hooks/useData";
 
-function OutputComponent({
-  personalData,
-  educationData,
-  workData,
-  customTitle,
-  customListData
-}) {
+function OutputComponent() {
+  const {personalData, educationData, workInfoData, customTitleList} = useData();
 
   /* render to all the data collected to the output (component) */
   return (
     <div className="output-component">
 
       {/* Import DownloadPdfBtn component and pass all the data as props */}
-      <DownloadPdfBtn
-        personalData={personalData}
-        educationData={educationData}
-        workData={workData}
-        customListData={customListData}
-        customTitle={customTitle}
-      />
+      <DownloadPdfBtn/>
 
       <div className="cv-container">
         
@@ -58,7 +48,7 @@ function OutputComponent({
           <h1>Work Experience</h1>
           <hr />
         </div>
-        {workData.map(list => (
+        {workInfoData.map(list => (
             <div className="work-list" key={list.id}>
               <div className="left">
                 <p> <b> {list.company} </b> </p>
@@ -75,18 +65,16 @@ function OutputComponent({
         ))}
       </div>
 
-      {customTitle.map((titleList) => {
+      {customTitleList.map((list) => {
       return (
       
-        <div className="custom-list-info" key={titleList.id}>
+        <div className="custom-list-info" key={list.id}>
           <div className="title-container">
-            <h1> {titleList.title} </h1>
+            <h1> {list.title} </h1>
             <hr />  
           </div>
         
-          {customListData
-          .filter(list =>  list.customTitle === titleList.title ) 
-          .map(list => (
+          {list?.customListData?.map(list => (
             <div className="custom-list" key={list.id}>
               <div className="left">
                 <p> <b> {list.infoOne} </b> </p>
