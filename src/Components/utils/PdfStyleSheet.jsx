@@ -1,13 +1,12 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
-/* styling for pdf file */
+/* styling for pdf file with improved text wrapping using only valid react-pdf CSS properties */
 export const styles = StyleSheet.create({
   page: {
     padding: 30,
     fontFamily: 'Helvetica',
     fontSize: 10,
-    lineHeight: 1.4,
-    justifyContent: 'center',    
+    lineHeight: 1.4,   
     alignItems: 'center',       
     height: 842,                  
     width: 595,
@@ -20,9 +19,6 @@ export const styles = StyleSheet.create({
   personalInfo: {
     textAlign: 'center',
     marginBottom: 15,
-    '& > *': {
-      marginBottom: 3,
-    }
   },
   name: {
     fontSize: 16,
@@ -40,22 +36,27 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     borderBottomWidth: 1,
     borderBottomColor: '#000',
-    borderBottomStyle: 'solid',
     paddingBottom: 3,
   },
   entryContainer: {
     marginBottom: 10,
+    flexDirection: 'column',
   },
   twoColumn: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 5,
+    width: '100%',
   },
   leftColumn: {
     flex: 1,
+    marginRight: 10,
+    maxWidth: '60%',
   },
   rightColumn: {
     alignItems: 'flex-end',
+    maxWidth: '35%',
+    flexShrink: 0,
   },
   description: {
     width: '100%',
