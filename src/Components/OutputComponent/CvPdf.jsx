@@ -1,9 +1,7 @@
 import { Document, Page, Text, View, } from "@react-pdf/renderer";
 import { styles } from "../utils/PdfStyleSheet";
-import useData from "../../hooks/useData";
 
-function CvPdf() {
-  const {personalData, educationData, workInfoData, customTitleList} = useData()
+function CvPdf({personalData, educationData, workInfoData, customTitleList}) {
 
   /* render all the data that are pass as props form DownloadBtn component. Uses react-pdf syntax. This will be the component that is render as a pdf */
   return (
@@ -47,7 +45,7 @@ function CvPdf() {
             <Text style={styles.sectionTitle}>Work Experience</Text>
             {workInfoData?.map((list) => (
               <View key={list.id} style={styles.entryContainer}>
-                <View style={styles.twoColumn}>
+                 <View style={styles.twoColumn}>
                   <View style={styles.leftColumn}>
                     <Text style={{ fontWeight: 'bold' }}>{list.company}</Text>
                     <Text>{list.location}</Text>
@@ -68,7 +66,8 @@ function CvPdf() {
           {customTitleList?.map((list) => (
             <View key={list.id} style={styles.section}>
               <Text style={styles.sectionTitle}>{list.title}</Text>
-              {list.customListData
+              {list?.customListData 
+                && list?.customListData
                 .map(list => (
                   <View key={list.id} style={styles.entryContainer}>
                     <View style={styles.twoColumn}>
