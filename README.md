@@ -2,7 +2,7 @@
 
 Allows user to created a formatted and downloadable cv/resume <br>
 
-Got some bugs. Currently fixing it
+Got some bugs. Currently fixing it(DONE)
 
 ## Built With
 
