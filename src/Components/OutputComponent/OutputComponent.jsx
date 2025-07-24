@@ -4,14 +4,37 @@ import useData from "../../hooks/useData";
 
 function OutputComponent() {
   const {personalData, educationData, workInfoData, customTitleList} = useData();
+  const {onShowSampleData, showSampleData} = useData();
+
+
+  const btnStyle = {
+    fontFamily: "Work Sans",
+    border: "transparent",
+    borderRadius: "5px",
+    backgroundColor: "#08af5bff",
+    padding: "8px",
+    marginBottom: "10px",
+    color: "white",
+    cursor: "pointer",
+    width: "110px"
+  }
 
   /* render to all the data collected to the output (component) */
   return (
     <div className="output-component">
 
-      {/* Import DownloadPdfBtn component and pass all the data as props */}
-      <DownloadPdfBtn/>
-
+      {/* Import DownloadPdfBtn component */}
+      <div className="dl-btn">
+        <DownloadPdfBtn/>
+        <button
+          style={btnStyle}
+          onClick={onShowSampleData}
+        >
+          <span>{showSampleData ? "Hide " : "Show "}</span>
+          Sample
+        </button>
+      </div>
+    
       <div className="cv-container">
         
         <div className="personal-info-output">
