@@ -102,3 +102,23 @@
   grid-column: 1 / -1;
   margin-top: 5px;
 }
+
+.dl-btn {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5;
+}
+
+.sample-btn {
+  font-family: "Work Sans";
+  border: "transparent";
+  border-radius: "5px";
+  background: "#0284c7";
+  padding: "8px";
+  margin-bottom: "10px";
+  color: "white";
+  cursor: "pointer";
+}
