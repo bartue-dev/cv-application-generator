@@ -14,7 +14,8 @@ function DownloadPdfBtn() {
     padding: "8px",
     marginBottom: "10px",
     color: "white",
-    cursor: "pointer"
+    cursor: "pointer",
+    width: "110px"
   }
 
   return (
